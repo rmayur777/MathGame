@@ -8,7 +8,7 @@
         {
             Console.WriteLine("--------------------------------------------------------------");
             Console.WriteLine($"Hello {name}. It's {date}. This is your math game");
-            Console.WriteLine("Press any key to show menu");
+            Console.WriteLine("Press any key to show menu.");
             Console.ReadLine();
             Console.WriteLine("\n");
             bool isGameOn = true;
