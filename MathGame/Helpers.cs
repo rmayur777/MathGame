@@ -71,6 +71,50 @@ namespace MathGame
             return result;
         }
 
+        internal static int[] GetDivisionNumbersMedium()
+        {
+            var random = new Random();
+            var firstNumber = random.Next(30, 150);
+            var secondNumber = random.Next(30, 150);
+
+
+            var result = new int[2];
+
+            while (firstNumber % secondNumber != 0)
+            {
+                firstNumber = random.Next(30, 150);
+                secondNumber = random.Next(30, 150);
+            }
+
+            result[0] = firstNumber;
+            result[1] = secondNumber;
+
+            return result;
+        }
+
+        internal static int[] GetDivisionNumbersHard()
+        {
+            var random = new Random();
+            var firstNumber = random.Next(40, 300);
+            var secondNumber = random.Next(40, 300);
+
+
+            var result = new int[2];
+
+            while (firstNumber % secondNumber != 0)
+            {
+                firstNumber = random.Next(40, 300);
+                secondNumber = random.Next(40, 300);
+            }
+
+            result[0] = firstNumber;
+            result[1] = secondNumber;
+
+            return result;
+        }
+
+
+
         internal static string ValidateResult(string result)
         {
             while (string.IsNullOrEmpty(result) || !Int32.TryParse(result, out _))
