@@ -1,9 +1,13 @@
 ﻿using MathGame.Models;
+using System.Diagnostics;
 
 namespace MathGame
 {
     internal class GameEngine
     {
+        Stopwatch stopwatch = new Stopwatch();
+
+        
         internal void SubtractionGame(string message)
         {
             Console.WriteLine(message);
@@ -136,6 +140,7 @@ namespace MathGame
 
             for (int i = 0; i < 2; i++)
             {
+                stopwatch.Start();
                 Console.Clear();
                 Console.WriteLine(message);
                 firstNumber = random.Next(1, 9);
@@ -161,6 +166,8 @@ namespace MathGame
                 if (i == 1)
                 {
                     Console.WriteLine($"Game over. Your final score is {score}. Press any key to go back to main menu");
+                    stopwatch.Stop();
+                    Console.WriteLine($"Your total time is {stopwatch.ElapsedMilliseconds/1000}s");
                     Console.ReadLine();
                 }
             }

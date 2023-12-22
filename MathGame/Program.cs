@@ -1,4 +1,5 @@
 ﻿using MathGame;
+using System.Diagnostics;
 
 var menu = new Menu();
 

@@ -26,27 +26,44 @@
  Q - Quit the program");
                 Console.WriteLine("--------------------------------------------------------------");
                 
-                var gameSelected = Console.ReadLine();
-                
+                string gameSelected = Console.ReadLine();
 
-                Console.WriteLine(@$"Choose level of difficulty
+                string diffSelected = "";
+
+                if(gameSelected == "s" || gameSelected == "m" || gameSelected == "a" || gameSelected == "d")
+                {
+                    Console.WriteLine(@$"Choose level of difficulty
   E - easy
   M - medium
   H - hard");
-                Console.WriteLine("--------------------------------------------------------------");
+                    Console.WriteLine("--------------------------------------------------------------");
 
-                var diffSelected = Console.ReadLine();
-                Console.WriteLine($"You selected {gameSelected} with {diffSelected} difficulty");
-                Console.ReadLine();
+                    diffSelected = Console.ReadLine();
+
+                    Console.WriteLine($"You selected {gameSelected} with {diffSelected} difficulty");
+                    Console.ReadLine();
+                }
+                else if ( gameSelected == "v")
+                {
+                    Helpers.PrintGames();
+                }else if( gameSelected == "q")
+                {
+                    Console.WriteLine("Goodbye");
+                    isGameOn = false;
+                }
+                else 
+                {
+                    Console.WriteLine( "please choose an option");
+                }
+
+                
+                
 
                 if(diffSelected == "e")
                 {
                    
                     switch (gameSelected.ToLower().Trim())
                 {
-                    case "v":
-                        Helpers.PrintGames();
-                        break;
                     case "a":
                         gameEngine.AdditionGame("Addition game");
                         break;
@@ -59,12 +76,10 @@
                     case "d":
                         gameEngine.DivisionGame("Division game");
                         break;
-                    case "q":
-                        Console.WriteLine("Goodbye");
-                        isGameOn = false;
-                        break;
+
                     default:
                         Console.WriteLine("Invalid input");
+                            Console.ReadLine() ;
                         break;
 
 
@@ -74,9 +89,6 @@
                 {
                     switch (gameSelected.ToLower().Trim())
                     {
-                        case "v":
-                            Helpers.PrintGames();
-                            break;
                         case "a":
                             gameEngine.AdditionGameMedium("Addition game");
                             break;
@@ -89,10 +101,6 @@
                         case "d":
                             gameEngine.DivisionGameMedium("Division game");
                             break;
-                        case "q":
-                            Console.WriteLine("Goodbye");
-                            isGameOn = false;
-                            break;
                         default:
                             Console.WriteLine("Invalid input");
                             break;
@@ -104,9 +112,6 @@
                 {
                     switch (gameSelected.ToLower().Trim())
                     {
-                        case "v":
-                            Helpers.PrintGames();
-                            break;
                         case "a":
                             gameEngine.AdditionGameHard("Addition game");
                             break;
@@ -119,10 +124,6 @@
                         case "d":
                             gameEngine.DivisionGameHard("Division game");
                             break;
-                        case "q":
-                            Console.WriteLine("Goodbye");
-                            isGameOn = false;
-                            break;
                         default:
                             Console.WriteLine("Invalid input");
                             break;
@@ -130,10 +131,6 @@
 
                     }
 
-                }
-                else
-                {
-                    Console.WriteLine("Please choose difficulty");
                 }
 
             } while (isGameOn);
